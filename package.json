@@ -1,0 +1,13 @@
+{
+  "name": "engineer-career-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A role-centric application tracker and interview prep hub for engineering students.",
+  "scripts": {
+    "start": "node server.js",
+    "check": "node --check server.js && node --check public/app.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
