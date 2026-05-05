@@ -1196,9 +1196,14 @@ document.addEventListener("input", (event) => {
 });
 
 document.addEventListener("submit", (event) => {
-  if (event.target.id === "application-form") {
+  const form = event.target;
+  if (!(form instanceof HTMLFormElement)) {
+    return;
+  }
+
+  if (form.matches("#application-form")) {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const formData = new FormData(form);
     const values = {
       id: formData.get("id"),
       company: formData.get("company") || "",
@@ -1224,9 +1229,9 @@ document.addEventListener("submit", (event) => {
     return;
   }
 
-  if (event.target.id === "story-form") {
+  if (form.matches("#story-form")) {
     event.preventDefault();
-    const formData = new FormData(event.target);
+    const formData = new FormData(form);
     const values = {
       id: formData.get("id"),
       title: formData.get("title") || "",
